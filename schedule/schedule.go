@@ -102,7 +102,9 @@ func ShouldScheduleChaos(mtbf int) bool {
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	probability := 1 / float64(mtbf)
 
-	glog.V(3).Info("Presetted probability by mtbf value is ", probability, "RandomNumber is ", r.Float64())
+	//TODO 잘 모르겠음
+	glog.V(3).Info("Presetted probability by mtbf value is ", probability, " RandomNumber is ", r.Float64())
+	glog.V(3).Info("LARGER ?? TRUE or FALSE : ", probability > r.Float64())
 	glog.V(3).Info("Schedule to terminate victim when mtbf value is larger than RandomNumber")
 
 	return probability > r.Float64()

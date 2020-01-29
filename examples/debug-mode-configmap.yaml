@@ -11,7 +11,7 @@ data:
     start_hour = 2
     end_hour = 23
     blacklisted_namespaces = ["kube-system"]
-    whitelisted_namespaces = [ "default", "cdi" ]
+    whitelisted_namespaces = [ "default", "cdi", "rook-ceph" ]
     time_zone = "Asia/Seoul"
     graceperiod_sec= 10
     [debug]

@@ -16,7 +16,7 @@ import (
 func durationToNextRun(runhour int, loc *time.Location) time.Duration {
 	if config.DebugEnabled() {
 		debugDelayDuration := config.DebugScheduleDelay()
-		glog.V(1).Infof("@@@@@@@@@@ VERSION myv1.0.0 @@@@@@@@@@@@")
+		glog.V(1).Infof("@@@@@@@@@@ VERSION myv1.0.1 @@@@@@@@@@@@")
 		glog.V(1).Infof("Debug mode detected!")
 		glog.V(1).Infof("Status Update: Generating next schedule in %.0f sec\n", debugDelayDuration.Seconds())
 		return debugDelayDuration

@@ -20,7 +20,7 @@
             command:
               - "/kube-monkey"
             args: ["-v=5", "-log_dir=/var/log/kube-monkey"]
-            image: localhost:5000/kube-monkey:myv1.0.0
+            image: localhost:5000/kube-monkey:myv1.0.1
             volumeMounts:
               - name: config-volume
                 mountPath: "/etc/kube-monkey"
