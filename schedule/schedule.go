@@ -87,7 +87,7 @@ func CalculateKillTime() time.Time {
 	if config.DebugEnabled() && config.DebugScheduleImmediateKill() {
 		r := rand.New(rand.NewSource(time.Now().UnixNano()))
 		// calculate a second-offset in the next minute
-		secOffset := r.Intn(60)
+		secOffset := r.Intn(30)
 		return time.Now().In(loc).Add(time.Duration(secOffset) * time.Second)
 	}
 	return calendar.RandomTimeInRange(config.StartHour(), config.EndHour(), loc)
@@ -95,10 +95,15 @@ func CalculateKillTime() time.Time {
 
 func ShouldScheduleChaos(mtbf int) bool {
 	if config.DebugEnabled() && config.DebugForceShouldKill() {
+		glog.V(3).Info("WITH DEBUG FORCE SHOULD KILL")
 		return true
 	}
 
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	probability := 1 / float64(mtbf)
+
+	glog.V(3).Info("Presetted probability by mtbf value is ", probability, "RandomNumber is ", r.Float64())
+	glog.V(3).Info("Schedule to terminate victim when mtbf value is larger than RandomNumber")
+
 	return probability > r.Float64()
 }

@@ -3,7 +3,6 @@
   kind: ConfigMap
   metadata:
     name: kube-monkey-config-map
-    namespace: kube-system
   data:
     config.toml: |
       [kubemonkey]

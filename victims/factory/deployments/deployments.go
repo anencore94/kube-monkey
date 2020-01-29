@@ -16,6 +16,12 @@ type Deployment struct {
 
 // New creates a new instance of Deployment
 func New(dep *v1.Deployment) (*Deployment, error) {
+	//for key, value := range dep.Labels {
+	//	glog.V(1).Infof("@@@@@@@@@@@@@@@@@@@@@\n\n")
+	//	fmt.Println("Key:", key, "Value:", value)
+	//	glog.V(1).Infof("@@@@@@@@@@@@@@@@@@@@@\n\n")
+	//}
+
 	ident, err := identifier(dep)
 	if err != nil {
 		return nil, err

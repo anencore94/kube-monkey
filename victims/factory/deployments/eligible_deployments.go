@@ -17,8 +17,8 @@ import (
 )
 
 // EligibleDeployments gets all eligible deployments that opted in (filtered by config.EnabledLabel)
-func EligibleDeployments(clientset kube.Interface, namespace string, filter *metav1.ListOptions) (eligVictims []victims.Victim, err error) {
-	enabledVictims, err := clientset.AppsV1().Deployments(namespace).List(*filter)
+func EligibleDeployments(clientset kube.Interface, namespace string) (eligVictims []victims.Victim, err error) {
+	enabledVictims, err := clientset.AppsV1().Deployments(namespace).List(metav1.ListOptions{})
 	if err != nil {
 		return nil, err
 	}

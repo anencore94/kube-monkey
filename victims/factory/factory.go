@@ -40,7 +40,7 @@ func EligibleVictims() (eligibleVictims []victims.Victim, err error) {
 
 	for _, namespace := range config.WhitelistedNamespaces().UnsortedList() {
 		// Fetch deployments
-		deployments, err := deployments.EligibleDeployments(clientset, namespace, filter)
+		deployments, err := deployments.EligibleDeployments(clientset, namespace)
 		if err != nil {
 			//allow pass through to schedule other kinds and namespaces
 			glog.Warningf("Failed to fetch eligible deployments for namespace %s due to error: %s", namespace, err.Error())
